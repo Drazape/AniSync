@@ -58,6 +58,8 @@ import com.anisync.android.R
 import com.anisync.android.data.TitleLanguage
 import com.anisync.android.domain.LibraryEntry
 import com.anisync.android.domain.url
+import com.anisync.android.presentation.components.CoverBadgeRibbon
+import com.anisync.android.presentation.components.coverBadges
 import com.anisync.android.presentation.util.AppMotion
 import com.anisync.android.presentation.util.TransitionKeys
 import com.anisync.android.presentation.util.bouncyClickable
@@ -306,20 +308,10 @@ private fun QueueCover(
         )
 
         // Spot an annotated entry while scanning, without opening anything (#75).
-        if (!entry.notes.isNullOrBlank()) {
-            Surface(
-                shape = RoundedCornerShape(bottomEnd = 8.dp),
-                color = MaterialTheme.colorScheme.primaryContainer,
-                modifier = Modifier.align(Alignment.TopStart)
-            ) {
-                Icon(
-                    imageVector = ImageVector.vectorResource(R.drawable.ic_note_stack_24px),
-                    contentDescription = stringResource(R.string.a11y_has_notes),
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                    modifier = Modifier.padding(4.dp).size(14.dp)
-                )
-            }
-        }
+        CoverBadgeRibbon(
+            badges = coverBadges(hasNotes = !entry.notes.isNullOrBlank()),
+            modifier = Modifier.align(Alignment.TopStart)
+        )
     }
 }
 
