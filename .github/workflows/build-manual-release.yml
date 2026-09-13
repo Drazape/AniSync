@@ -63,36 +63,36 @@ jobs:
           } >> "$GITHUB_ENV"
 
       - name: Upload arm64-v8a Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: ${{ env.APK_ARM64_FILE }}
           path: app/build/outputs/apk/stable/release/${{ env.APK_ARM64_FILE }}
           if-no-files-found: error
+          archive: false
 
       - name: Upload armeabi-v7a Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: ${{ env.APK_ARMEABI_FILE }}
           path: app/build/outputs/apk/stable/release/${{ env.APK_ARMEABI_FILE }}
           if-no-files-found: error
+          archive: false
 
       - name: Upload universal Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: ${{ env.APK_UNIVERSAL_FILE }}
           path: app/build/outputs/apk/stable/release/${{ env.APK_UNIVERSAL_FILE }}
           if-no-files-found: error
+          archive: false
 
       - name: Upload x86_64 Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: ${{ env.APK_X86_64_FILE }}
           path: app/build/outputs/apk/stable/release/${{ env.APK_X86_64_FILE }}
           if-no-files-found: error
+          archive: false
 
       - name: Upload x86 Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: ${{ env.APK_X86_FILE }}
           path: app/build/outputs/apk/stable/release/${{ env.APK_X86_FILE }}
           if-no-files-found: error
+          archive: false
